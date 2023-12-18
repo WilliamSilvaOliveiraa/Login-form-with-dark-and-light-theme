@@ -108,8 +108,17 @@ root {
   justify-content: center;
 }
 
+#social_media {
+  display: flex;
+  justify-content: space-around;
+}
+
 #social_media img {
   width: 35px;
+}
+
+#social_media img:hover {
+  transform: scale(1.2);
 }
 
 #login_form {
