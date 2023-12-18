@@ -66,16 +66,20 @@ export default {
     // No momento em que o componente é montado no DOM
     const mode = document.getElementById("mode_icon");
 
-    // Adicionando um ouvinte de evento de clique ao ícone mode
     mode.addEventListener("click", () => {
+      const form = document.getElementById("login_form");
+
       if (mode.classList.contains("fa-moon")) {
         mode.classList.remove("fa-moon");
         mode.classList.add("fa-sun");
 
+        form.classList.add("dark");
         return;
       }
+
       mode.classList.add("fa-moon");
       mode.classList.remove("fa-sun");
+      form.classList.remove("dark");
     });
   },
   methods: {
@@ -136,6 +140,7 @@ root {
 
 #social_media img {
   width: 35px;
+  transition: transform 0.3s ease;
 }
 
 #social_media img:hover {
@@ -164,6 +169,7 @@ root {
   gap: 30px;
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.366);
   height: fit-content;
+  animation: dark-to-light 0.3s ease-in-out;
 }
 
 #form_header {
@@ -241,9 +247,49 @@ root {
   border-radius: 3px;
   font-weight: lighter;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 #login_button:hover {
   transform: scale(1.05);
+}
+
+.dark#login_form {
+  color: #f8fafc;
+  background-color: #312d37;
+  animation: light-to-dark 0.3s ease-in-out;
+}
+
+.dark#login_form .escudoinput input,
+.dark#login_form .escudoinput i {
+  color: #f8fafc;
+}
+
+.dark#login_form .input-label {
+  color: #cfcfcf;
+}
+
+.dark#login_form #forgot_password a {
+  color: #cfcfcf;
+}
+
+@keyframes dark-to-light {
+  0% {
+    background-color: #312d37;
+  }
+
+  100% {
+    background-color: #f8fafc;
+  }
+}
+
+@keyframes light-to-dark {
+  0% {
+    background-color: #f8fafc;
+  }
+
+  100% {
+    background-color: #312d37;
+  }
 }
 </style>
