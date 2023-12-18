@@ -19,27 +19,27 @@
 
       <div id="inputs">
         <div class="input_box">
-          <label for="name">
+          <label for="name" class="input-label">
             Name
-            <div class="input_field">
+            <div class="escudoinput">
               <i class="fa-solid fa-user"></i>
               <input type="text" id="name" name="name" />
             </div>
           </label>
         </div>
         <div class="input_box">
-          <label for="email">
+          <label for="email" class="input-label">
             Email
-            <div class="input_field">
+            <div class="escudoinput">
               <i class="fa-solid fa-envelope"></i>
               <input type="text" id="email" name="email" />
             </div>
           </label>
         </div>
         <div class="input_box">
-          <label for="password">
+          <label for="password" class="input-label">
             Password
-            <div class="input_field">
+            <div class="escudoinput">
               <i class="fa-solid fa-key"></i>
               <input type="password" id="password" name="password" />
             </div>
@@ -121,6 +121,19 @@ root {
   transform: scale(1.2);
 }
 
+#inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.input-label {
+  font-size: 14px;
+  color: #797984;
+}
+
 #login_form {
   background-color: #f8fafc;
   display: flex;
@@ -156,5 +169,35 @@ root {
 #mode_icon {
   cursor: pointer;
   font-size: 20px;
+}
+
+.escudoinput {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 3px;
+  cursor: text;
+  border-bottom: 1px solid #7c3aed;
+}
+
+.escudoinput i {
+  font-size: 18px;
+  color: #000;
+}
+
+.escudoinput input {
+  border: none;
+  background-color: transparent;
+  width: 260px;
+  font-size: 18px;
+  padding: 0px 5px;
+}
+
+.escudoinput input:focus {
+  outline: none;
+}
+
+#forgot_password a {
+  text-decoration: none;
 }
 </style>
