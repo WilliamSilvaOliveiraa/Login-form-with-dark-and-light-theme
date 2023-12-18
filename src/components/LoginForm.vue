@@ -72,7 +72,9 @@ export default {
 </script>
 
 <style>
-:root {
+@import url("https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa1d0WTBtN2R3Q2NiNndMQld2c240aXhsak94QXxBQ3Jtc0trZXYxZy16V1VCeWEzSEJrR1VCbUpDWWtKY2J0OEtlZ0hrSEk5c2ZUVlNweDJnZWVFOFl5VnBsb0Jxb00zSVhXZmF3cnpiLTRZWkZDN0phS3ZDYXYwQnRib3R0ZW9UczRJVktFV3hibURGZEVwLTk5dw&q=https%3A%2F%2Ffonts.googleapis.com%2Fcss2%3Ffamily%3DPoppins%3Awght%40100%3B200%3B300%3B400%26display%3Dswap%27%29%3B&v=qKWApkuhNu8");
+
+root {
   --color-light-50: #f8fafc;
 
   --color-dark-50: #797984;
@@ -89,5 +91,61 @@ export default {
     var(--color-purple-100),
     var(--color-purple-200)
   );
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#container {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #bf46ef);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#social_media img {
+  width: 35px;
+}
+
+#login_form {
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px;
+  border-radius: 8px;
+  gap: 30px;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.366);
+  height: fit-content;
+}
+
+#form_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#form_header h1 {
+  font-size: 40px;
+  position: relative;
+}
+
+#form_header h1::before {
+  position: absolute;
+  content: "";
+  width: 40%;
+  background-color: #7c3aed;
+  height: 3px;
+  bottom: 4px;
+  border-radius: 10px;
+}
+
+#mode_icon {
+  cursor: pointer;
+  font-size: 20px;
 }
 </style>
