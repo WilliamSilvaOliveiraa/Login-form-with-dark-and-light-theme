@@ -197,7 +197,32 @@ root {
   outline: none;
 }
 
+#forgot_password {
+  margin-top: 4px;
+}
+
 #forgot_password a {
   text-decoration: none;
+  font-size: 12px;
+  color: #797984;
+}
+
+#forgot_password a:hover {
+  color: #7c3aed;
+}
+
+#login_button {
+  border: none;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #bf46ef);
+  color: #f8fafc;
+  padding: 7px;
+  font-size: 18px;
+  border-radius: 3px;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+#login_button:hover {
+  transform: scale(1.05);
 }
 </style>
