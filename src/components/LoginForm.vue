@@ -62,10 +62,31 @@ export default {
       senha: "",
     };
   },
+  mounted() {
+    // No momento em que o componente é montado no DOM
+    const mode = document.getElementById("mode_icon");
+
+    // Adicionando um ouvinte de evento de clique ao ícone mode
+    mode.addEventListener("click", () => {
+      if (mode.classList.contains("fa-moon")) {
+        mode.classList.remove("fa-moon");
+        mode.classList.add("fa-sun");
+
+        return;
+      }
+      mode.classList.add("fa-moon");
+      mode.classList.remove("fa-sun");
+    });
+  },
   methods: {
     entrar() {
       // Lógica para autenticar o usuário com o servidor
       console.log("Dados de login:", this.email, this.senha);
+    },
+    handleModeClick() {
+      // Lógica a ser executada quando o ícone mode for clicado
+      console.log("Ícone mode clicado!");
+      // Adicione sua lógica personalizada aqui
     },
   },
 };
