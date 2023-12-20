@@ -17,7 +17,7 @@
         </a>
       </div>
 
-      <div id="inputs">
+      <div id="inputsLogin">
         <div class="input_box">
           <label for="name" class="input-label">
             Name
@@ -52,11 +52,20 @@
             <div class="escudoinput">
               <i class="fa-solid fa-key"></i>
               <input
-                type="password"
+                :type="showPassword ? 'text' : 'password'"
                 id="password"
                 name="password"
+                v-model="password"
                 autocomplete="current-password"
               />
+              <i
+                :class="[
+                  showPassword
+                    ? 'fa-solid fa-eye eye-icon'
+                    : 'fa-solid fa-eye-slash eye-icon',
+                ]"
+                @click="togglePasswordVisibility"
+              ></i>
             </div>
           </label>
           <div id="forgot_password">
@@ -76,6 +85,7 @@ export default {
     return {
       email: "",
       senha: "",
+      showPassword: false,
     };
   },
   mounted() {
@@ -106,6 +116,9 @@ export default {
     handleModeClick() {
       // Lógica a ser executada quando o ícone mode for clicado
       console.log("Ícone mode clicado!");
+    },
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
     },
   },
 };
@@ -162,12 +175,12 @@ root {
   transform: scale(1.2);
 }
 
-#inputs {
+#inputsLogin {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 .input-label {
@@ -265,6 +278,7 @@ root {
   font-weight: lighter;
   cursor: pointer;
   transition: transform 0.3s ease;
+  margin-top: 25px;
 }
 
 #login_button:hover {
