@@ -61,9 +61,7 @@
           </label>
           <div id="forgot_password">
             <a href="#">Forgot your password?</a>
-            <a href="#" @click.prevent="$emit('mudarFormulario')"
-              >Ainda não possui uma conta?</a
-            >
+            <a href="#" @click.prevent="$emit('mudarFormulario')">Sign Up</a>
           </div>
         </div>
       </div>
