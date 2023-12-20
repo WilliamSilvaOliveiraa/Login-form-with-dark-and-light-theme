@@ -53,27 +53,43 @@
             <div class="escudoinput">
               <i class="fa-solid fa-key"></i>
               <input
-                type="password"
+                :type="showPassword ? 'text' : 'password'"
                 id="passwordRegister"
                 name="password"
                 v-model="passwordRegister"
                 autocomplete="current-password"
               />
+              <i
+                :class="[
+                  showPassword
+                    ? 'fa-solid fa-eye eye-icon'
+                    : 'fa-solid fa-eye-slash eye-icon',
+                ]"
+                @click="togglePasswordVisibility"
+              ></i>
             </div>
           </label>
         </div>
         <div class="input_box">
-          <label for="passwordRegister" class="input-label">
+          <label for="confirmPasswordRegister" class="input-label">
             Confirm Password
             <div class="escudoinput">
               <i class="fa-solid fa-circle-check"></i>
               <input
-                type="password"
-                id="passwordRegister"
-                name="password"
-                v-model="passwordRegister"
+                :type="showConfirmPassword ? 'text' : 'password'"
+                id="confirmPasswordRegister"
+                name="confirmPassword"
+                v-model="confirmPasswordRegister"
                 autocomplete="current-password"
               />
+              <i
+                :class="[
+                  showConfirmPassword
+                    ? 'fa-solid fa-eye eye-icon'
+                    : 'fa-solid fa-eye-slash eye-icon',
+                ]"
+                @click="toggleConfirmPasswordVisibility"
+              ></i>
             </div>
           </label>
           <div id="forgot_passwordRegister">
@@ -95,6 +111,8 @@ export default {
       nameRegister: "",
       emailRegister: "",
       passwordRegister: "",
+      showPassword: false,
+      showConfirmPassword: false,
     };
   },
   mounted() {
@@ -127,6 +145,12 @@ export default {
 
       // Emitir evento para alternar entre formulários
       this.$emit("switchForm");
+    },
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
+    },
+    toggleConfirmPasswordVisibility() {
+      this.showConfirmPassword = !this.showConfirmPassword;
     },
   },
 };
@@ -176,6 +200,7 @@ export default {
 .input-label {
   font-size: 14px;
   color: #797984;
+  width: 100%; /* Garante que a largura seja 100% do contêiner pai */
 }
 
 #register_form {
@@ -216,15 +241,6 @@ export default {
   font-size: 20px;
 }
 
-.escudoinput {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 3px;
-  cursor: text;
-  border-bottom: 1px solid #7c3aed;
-}
-
 #forgot_passwordRegister {
   margin-top: 4px;
   justify-content: space-between; /* Adicionado para espaçamento entre os links */
@@ -238,8 +254,24 @@ export default {
   margin-left: auto; /* Adicionado para alinhar à direita */
 }
 
+.escudoinput i.fa-eye {
+  font-size: 18px;
+  color: #000;
+  margin-left: 1.125px; /* Mover o ícone eye-slash para a direita */
+}
+
 #forgot_passwordRegister a:hover {
   color: #7c3aed;
+}
+
+.escudoinput {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 3px;
+  cursor: text;
+  border-bottom: 1px solid #7c3aed;
+  width: 340px;
 }
 
 .escudoinput i {
@@ -247,12 +279,16 @@ export default {
   color: #000;
 }
 
+.escudoinput .eye-icon {
+  cursor: pointer; /* Adicionado cursor: pointer apenas para o ícone de olho */
+}
+
 .escudoinput input {
   border: none;
   background-color: transparent;
   width: 260px;
   font-size: 18px;
-  padding: 0px 5px;
+  padding: 0px 0px;
 }
 
 .escudoinput input:focus {
@@ -288,6 +324,11 @@ export default {
 
 .darkRegister#register_form .input-label {
   color: #cfcfcf;
+}
+
+.input_box {
+  width: 100%; /* Garante que a largura seja 100% do contêiner pai */
+  min-width: 340px;
 }
 
 .darkRegister#register_form #forgot_passwordRegister a {
