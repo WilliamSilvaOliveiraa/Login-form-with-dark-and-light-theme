@@ -61,10 +61,23 @@
               />
             </div>
           </label>
+        </div>
+        <div class="input_box">
+          <label for="passwordRegister" class="input-label">
+            Confirm Password
+            <div class="escudoinput">
+              <i class="fa-solid fa-circle-check"></i>
+              <input
+                type="password"
+                id="passwordRegister"
+                name="password"
+                v-model="passwordRegister"
+                autocomplete="current-password"
+              />
+            </div>
+          </label>
           <div id="forgot_passwordRegister">
-            <a href="#" @click.prevent="$emit('mudarFormulario')"
-              >Já possui uma conta?</a
-            >
+            <a href="#" @click.prevent="$emit('mudarFormulario')">Sign In</a>
           </div>
         </div>
       </div>

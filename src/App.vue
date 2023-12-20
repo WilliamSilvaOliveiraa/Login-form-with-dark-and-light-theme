@@ -41,12 +41,11 @@ export default {
 </script>
 
 <style>
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.slide-fade-enter, .slide-fade-leave-to /* .slide-fade-leave-active in <2.1.8 */ {
+.fade-enter, .fade-leave-to /* .fade-leave-active no <2.1.8+ */ {
   opacity: 0;
-  transform: translateX(30px);
 }
 </style>
