@@ -23,7 +23,12 @@
             Name
             <div class="escudoinput">
               <i class="fa-solid fa-user"></i>
-              <input type="text" id="name" name="name" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="current-name"
+              />
             </div>
           </label>
         </div>
@@ -32,7 +37,12 @@
             Email
             <div class="escudoinput">
               <i class="fa-solid fa-envelope"></i>
-              <input type="text" id="email" name="email" />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                autocomplete="current-email"
+              />
             </div>
           </label>
         </div>
@@ -41,11 +51,19 @@
             Password
             <div class="escudoinput">
               <i class="fa-solid fa-key"></i>
-              <input type="password" id="password" name="password" />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+              />
             </div>
           </label>
           <div id="forgot_password">
             <a href="#">Forgot your password?</a>
+            <a href="#" @click.prevent="$emit('mudarFormulario')"
+              >Ainda não possui uma conta?</a
+            >
           </div>
         </div>
       </div>
@@ -90,7 +108,6 @@ export default {
     handleModeClick() {
       // Lógica a ser executada quando o ícone mode for clicado
       console.log("Ícone mode clicado!");
-      // Adicione sua lógica personalizada aqui
     },
   },
 };
@@ -226,6 +243,8 @@ root {
 
 #forgot_password {
   margin-top: 4px;
+  justify-content: space-between; /* Adicionado para espaçamento entre os links */
+  display: flex;
 }
 
 #forgot_password a {
