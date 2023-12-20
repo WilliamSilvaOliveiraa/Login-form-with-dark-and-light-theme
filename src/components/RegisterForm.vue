@@ -3,7 +3,12 @@
     <form action="" id="register_form">
       <div id="form_headerRegister">
         <h1>Register</h1>
-        <i class="fa-solid fa-moon" id="mode_icon"></i>
+        <i
+          class="fa-solid"
+          :class="{ 'fa-moon': !isDarkMode, 'fa-sun': isDarkMode }"
+          id="mode_icon"
+          @click="toggleDarkMode"
+        ></i>
       </div>
       <div id="social_media">
         <a href="">
@@ -113,27 +118,32 @@ export default {
       passwordRegister: "",
       showPassword: false,
       showConfirmPassword: false,
+      isDarkMode: false,
     };
   },
   mounted() {
-    const mode = document.getElementById("mode_icon");
-
-    mode.addEventListener("click", () => {
+    // Inicializa o tema e o ícone corretamente
+    this.applyTheme();
+  },
+  methods: {
+    toggleDarkMode() {
+      this.isDarkMode = !this.isDarkMode; // Altera a propriedade isDarkMode
+      this.applyTheme(); // Aplica o tema quando o modo escuro é alternado
+    },
+    applyTheme() {
+      const mode = document.getElementById("mode_icon");
       const form = document.getElementById("register_form");
 
-      if (mode.classList.contains("fa-moon")) {
+      if (this.isDarkMode) {
         mode.classList.remove("fa-moon");
         mode.classList.add("fa-sun");
         form.classList.add("darkRegister");
-        return;
+      } else {
+        mode.classList.remove("fa-sun");
+        mode.classList.add("fa-moon");
+        form.classList.remove("darkRegister");
       }
-
-      mode.classList.add("fa-moon");
-      mode.classList.remove("fa-sun");
-      form.classList.remove("darkRegister");
-    });
-  },
-  methods: {
+    },
     register() {
       // Lógica para registrar o usuário com o servidor
       console.log(
