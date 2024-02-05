@@ -152,9 +152,6 @@ export default {
         this.emailRegister,
         this.passwordRegister
       );
-
-      // Emitir evento para alternar entre formulários
-      this.$emit("switchForm");
     },
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
