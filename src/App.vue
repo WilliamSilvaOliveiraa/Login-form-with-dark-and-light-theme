@@ -11,7 +11,6 @@
 
 <script>
 import LoginForm from "./components/LoginForm.vue";
-
 import RegisterForm from "./components/RegisterForm.vue";
 
 export default {
@@ -26,15 +25,9 @@ export default {
     RegisterForm,
   },
   methods: {
-    switchForm() {
-      this.showLoginForm = !this.showLoginForm;
-      console.log(
-        `Evento switchForm emitido. Exibir formulário de login: ${this.showLoginForm}`
-      );
-    },
     mudarFormulario() {
       this.mostrarRegisterForm = !this.mostrarRegisterForm;
-      console.log(`Foi trocado de formulario`);
+      console.log(`Foi trocado de formulário`);
     },
   },
 };
