@@ -323,4 +323,7 @@ root {
     background-color: #312d37;
   }
 }
+
+@media screen and (max-width: 767px) {
+}
 </style>
