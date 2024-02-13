@@ -325,5 +325,17 @@ root {
 }
 
 @media screen and (max-width: 767px) {
+  #login_form {
+    background-color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 8px;
+    gap: 30px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.366);
+    height: fit-content;
+    animation: dark-to-light 0.3s ease-in-out;
+    width: 90%;
+  }
 }
 </style>

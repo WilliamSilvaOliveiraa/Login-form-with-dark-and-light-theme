@@ -278,7 +278,7 @@ export default {
   padding: 3px;
   cursor: text;
   border-bottom: 1px solid #7c3aed;
-  width: 340px;
+  width: 100%;
 }
 
 .escudoinput i {
@@ -359,6 +359,23 @@ export default {
 
   100% {
     background-color: #312d37;
+  }
+}
+@media screen and (max-width: 767px) {
+  #register_form {
+    width: 90%;
+  }
+
+  .input_box {
+    min-width: 100%; /* Ajusta a largura dos campos de entrada para ocupar 100% da largura da tela */
+  }
+
+  #form_headerRegister h1 {
+    font-size: 30px; /* Reduz o tamanho da fonte do cabeçalho */
+  }
+
+  .escudoinput input {
+    width: 100%; /* Faz com que os campos de entrada ocupem toda a largura disponível */
   }
 }
 </style>
